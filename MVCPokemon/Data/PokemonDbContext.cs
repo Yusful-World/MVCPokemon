@@ -11,6 +11,8 @@ namespace MVCPokemon.Data
 
         public DbSet<Pokemon> Pokemons { get; set; }
 
+        public DbSet<Photo> Photos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
