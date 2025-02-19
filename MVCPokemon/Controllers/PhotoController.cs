@@ -21,7 +21,6 @@ namespace MVCPokemon.Controllers
             return View(photos);
         }
 
-        [HttpGet]
         public IActionResult Photo(int? id)
         {
             var photo = _context.Photos.FirstOrDefault(p => p.Id == id);
@@ -40,7 +39,7 @@ namespace MVCPokemon.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPokemon(Photo photo, [FromForm] IFormFile? image)
+        public async Task<IActionResult> AddPhoto(Photo photo, [FromForm] IFormFile? image)
         {
             if (ModelState.IsValid)
             {
@@ -126,7 +125,7 @@ namespace MVCPokemon.Controllers
                 TempData["error"] = "An error occured while updating the photo.";
             }
 
-            return View();
+            return View("Photos");
         }
 
         [HttpDelete]
@@ -151,7 +150,7 @@ namespace MVCPokemon.Controllers
                 return Json(new { success = true, id });
             }
 
-            return View();
+            return RedirectToAction("Photos");
         }
     }
 }
