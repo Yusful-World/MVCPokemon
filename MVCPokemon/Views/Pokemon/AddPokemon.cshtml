@@ -2,18 +2,36 @@
 @{
 }
 
-<form method="post" enctype="multipart/form-data" asp-action="AddPokemon" asp-controller="Pokemon">
-    <input asp-for="ImageUrl" hidden />
-<div>
-    <div asp-validation-summary="All"></div>
-    <input type="text" asp-for="Name" placeholder="Name" />
-    <input type="text" asp-for="Power" placeholder="Power" />
-    <input type="text" asp-for="Owner" placeholder="Owner" />
-    <input type="text" asp-for="Colour" placeholder="Colour" />
+<div class="card-body p-md-2 mt-2">
+    <form method="post" enctype="multipart/form-data" asp-action="AddPokemon" asp-controller="Pokemon">
+        <input asp-for="ImageUrl" hidden />
     <div>
-        <input type="file" name="image" class="form-control ms-2" />
-        <label class="ms-2">Upload Image</label>
+    <div class="border p-3 mt-4">
+        <div class="form-floating py-2 col-12">
+            <input asp-for="Name" class="form-control border-0 shadow" />
+            <label asp-for="Name" class="ms-2"></label>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-floating py-2 col-12">
+            <input asp-for="Power" class="form-control border-0 shadow" />
+            <label asp-for="Power" class="ms-2"></label>
+            <span asp-validation-for="Power" class="text-danger"></span>
+        </div>
+        <div class="form-floating py-2 col-12">
+            <input asp-for="Owner" class="form-control border-0 shadow" />
+            <label asp-for="Owner" class="ms-2"></label>
+            <span asp-validation-for="Owner" class="text-danger"></span>
+        </div>
+        <div class="form-floating py-2 col-12">
+            <input asp-for="Colour" class="form-control border-0 shadow" />
+            <label asp-for="Colour" class="ms-2"></label>
+            <span asp-validation-for="Colour" class="text-danger"></span>
+        </div
+        <div>
+            <input type="file" name="image" class="form-control ms-2" />
+            <label class="ms-2">Upload Image</label>
+        </div>
     </div>
+        <button type="submit" class="bg-primary border-light rounded mb-3"> Add Pokemon</button>
+    </form>
 </div>
-    <button type="submit">Add Pokemon</button>
-</form>
