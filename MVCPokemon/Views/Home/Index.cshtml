@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center text-black-50">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="row pb-2">
+    @foreach (Pokemon pokemon in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-1 ">
+                <div class="col-12 p-2 card">
+                    <div class="card-header text-center">
+                        <h5>@pokemon.Name</h5>
+                    </div>
+                    <div class="card border-1 p-2 align-content-center">
+                        <img src="@pokemon.ImageUrl" class="card-img-top" style="width:150px;height:150px;" />
+                    </div>
+                    <div class="card-body mb-0 p-0 text-center">
+                        <p class="mt-3 rounded text-center" style="background-color:
+                            @pokemon.Colour; color: white">@pokemon.Power</p>
+                        <p class="fw-bolder mt-3"> Owner: @pokemon.Owner</p>
+                       </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

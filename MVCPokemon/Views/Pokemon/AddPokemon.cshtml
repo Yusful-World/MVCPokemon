@@ -1,0 +1,19 @@
+﻿@model Pokemon
+@{
+}
+
+<form method="post" enctype="multipart/form-data" asp-action="AddPokemon" asp-controller="Pokemon">
+    <input asp-for="ImageUrl" hidden />
+<div>
+    <div asp-validation-summary="All"></div>
+    <input type="text" asp-for="Name" placeholder="Name" />
+    <input type="text" asp-for="Power" placeholder="Power" />
+    <input type="text" asp-for="Owner" placeholder="Owner" />
+    <input type="text" asp-for="Colour" placeholder="Colour" />
+    <div>
+        <input type="file" name="image" class="form-control ms-2" />
+        <label class="ms-2">Upload Image</label>
+    </div>
+</div>
+    <button type="submit">Add Pokemon</button>
+</form>
