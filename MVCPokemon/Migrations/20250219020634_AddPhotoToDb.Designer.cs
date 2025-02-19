@@ -4,6 +4,7 @@ using MVCPokemon.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVCPokemon.Migrations
 {
     [DbContext(typeof(PokemonDbContext))]
-    partial class PokemonDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250219020634_AddPhotoToDb")]
+    partial class AddPhotoToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,11 +36,8 @@ namespace MVCPokemon.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly>("CreatedDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
